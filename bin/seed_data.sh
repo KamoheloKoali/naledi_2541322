@@ -3,7 +3,12 @@
 # seed initial data
 
 CURR_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$CURR_SCRIPT_DIR/../lib/validate_config.sh"
+
+validate_config
 source "$CURR_SCRIPT_DIR/../etc/naledi.conf"
+
+
 source "$PROJECT_ROOT/lib/seed_districts.sh"
 source "$PROJECT_ROOT/lib/seed_herd_registry.sh"
 source "$PROJECT_ROOT/lib/seed_quarantine_zones.sh"

@@ -5,14 +5,14 @@
 mywhoami() {
   echo "------ IDENTITY BANNER ------" 
   echo
+
+  echo "------ FILESYSTEM INFO ------"
+  findmnt -T $PROJECT_ROOT
+  
   echo "------- CURRENT USER ------"
   printf '%s | %s@%s | %s\n' "$STUDENT_ID" "$(whoami)" "$(uname -n)" "$(date '+%F %T %T')";
   echo
 
-  echo "------ FILESYSTEM INFO ------"
-  findmnt -T $PROJECT_ROOT
-
-  echo
   echo "------ OUTPUT ------"
   echo
 }

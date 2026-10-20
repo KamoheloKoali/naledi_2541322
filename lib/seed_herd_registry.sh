@@ -3,7 +3,11 @@
 # seed herd_register.dat 
 
 CURR_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$CURR_SCRIPT_DIR/../lib/validate_config.sh"
+
+validate_config
 source "$CURR_SCRIPT_DIR/../etc/naledi.conf"
+
 
 generate_date_of_birth() {
   days_less_18=$(( RANDOM % 548 ))

@@ -35,9 +35,13 @@ create_with_import () {
   if (
     touch "$1";
     chmod +x "$1";
-    printf "%s\n" "#!/usr/bin/bash" > "$1";
+    printf "%s\n\n" "#!/usr/bin/bash" > "$1";
     printf "%s\n" 'CURR_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"' >> "$1";
-    printf "%s\n" 'source "$CURR_SCRIPT_DIR/../etc/naledi.conf"' >> "$1"
+    printf "%s\n" 'source "$CURR_SCRIPT_DIR/../lib/validate_config.sh"
+
+validate_config
+source "$CURR_SCRIPT_DIR/../etc/naledi.conf"
+' >> "$1"
   ); then
     creation_successful "$1"
   else

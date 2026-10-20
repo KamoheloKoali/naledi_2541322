@@ -3,10 +3,14 @@
 # seed districts.dat
 
 CURR_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$CURR_SCRIPT_DIR/../lib/validate_config.sh"
+
+validate_config
 source "$CURR_SCRIPT_DIR/../etc/naledi.conf"
 
+
 seed_districts() {
-  FILE_PATH="$PROJECT_ROOT/data/disctricts.dat"
+  FILE_PATH="$PROJECT_ROOT/data/districts.dat"
   DISTRICTS=("Maseru" "Berea" "Butha-Buthe" "Leribe" "Mafeteng" "Quthing")
   OFFICES=("Central Office" "Northern Office" "Southern Office")
 
